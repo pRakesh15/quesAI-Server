@@ -5,14 +5,14 @@ import { User } from "../model/user.model.js";
 
 
 export const isAuthenticate = catchError(async (req, res, next) => {
-    // let token;
+    let token;
   
     // Check if token exists in headers
-    // if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-    //   token = req.headers.authorization.split(' ')[1];
-    // }
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+      token = req.headers.authorization.split(' ')[1];
+    }
     
-    const { token } = req.cookies;
+    // const { token } = req.cookies;
 
   if (!token) return next(new ErrorHendler("Plz Login or signUp", 404));
 
