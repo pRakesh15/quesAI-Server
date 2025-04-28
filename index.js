@@ -4,6 +4,7 @@ import express from 'express'
 import { errorMiddleWare } from './src/middlewares/errorHendler.js';
 import userRoute from "./src/routes/auth.route.js";
 import projectRoute from "./src/routes/project.route.js";
+import fileRoute from "./src/routes/file.route.js";
 import cors from 'cors'
 
  const app=express();
@@ -32,6 +33,9 @@ app.use("/api/v1/user",userRoute)
 
 //add the project routs
 app.use("/api/v1/project",projectRoute)
+
+//add the file routs
+app.use("/api/v1/file",fileRoute)
 
 app.use(errorMiddleWare);
 
