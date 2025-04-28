@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import express from 'express'
 import { errorMiddleWare } from './src/middlewares/errorHendler.js';
 import userRoute from "./src/routes/auth.route.js";
+import projectRoute from "./src/routes/project.route.js";
 import cors from 'cors'
 
  const app=express();
@@ -26,11 +27,11 @@ app.get("/",(req,res)=>{
 res.send("JAY SHREE RAM");
 })
 
-// //add the user router
+//add the user router
 app.use("/api/v1/user",userRoute)
 
-// //add the seat routs
-// app.use("/api/v1/seat",seatRout)
+//add the project routs
+app.use("/api/v1/project",projectRoute)
 
 app.use(errorMiddleWare);
 
